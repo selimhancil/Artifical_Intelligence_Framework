@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} ANASAYFA {% endblock %}
+
+{% block css_files %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .hero-section {
+        background-image: url("{% static 'blog/img/anasayfa.gif' %}");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        color: #fff;
+        position: relative;
+    }
+
+    .hero-content {
+        max-width: 600px;
+        background: rgba(0, 0, 0, 0.6); 
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    .hero-logo {
+        position: fixed;
+        top: 70px;
+        left: 15px;
+        max-width: 120px;
+        z-index: 999;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-content p {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #6e8efb;
+        border-color: #6e8efb;
+    }
+
+    .btn-primary:hover {
+        background-color: #5a78e1;
+        border-color: #5a78e1;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1>Hoş Geldiniz!</h1>
+                    <p class="lead">Sitemize hoş geldiniz. Burada size ilham olacak tüm yapay zeka araçlarını bulabilir ve aralarından ilginizi çekenlere ilerleyebilirsiniz.</p>
+                    <a class="btn btn-primary btn-lg" href="{% url 'blogs' %}" role="button">Yapay Zeka Araçlarına Git</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

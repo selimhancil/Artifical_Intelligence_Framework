@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-1">
+            
+        </div>
+        <div class="col-md-5">
+            <h2 class="display-3 text-primary">Hakkımızda</h2>
+            <p class="lead text-muted">Biz kimiz ve ne yapıyoruz?</p>
+            <p>Şirketimiz, Fırat Üniversitesi UOLP Bölümü Kapsamında Selim Han ÇİL ve Ali Burak KIZIL tarafından 2024 tarihinde, sektörde öncü bir firma olarak kaliteli hizmet ve müşteri memnuniyetini ön planda tutmak ilkeleriyle kurulmuştur. 
+            </p>Uzman ekibimizle birlikte, yenilikçi çözümler sunarak müşterilerimizin yapay zeka denizinde boğulmasını önleyecek bir çalışmaya imza atmış bulunmaktayız.</p>
+            <p>Öğrenme ve Geliştirme azminin verdiği heyecanımızla, alanımızda saygın bir yer edinmeyi amaçlamaktayız. Misyonumuz, sürekli gelişim ve müşteri odaklı hizmet anlayışıyla sektörde fark yaratmaktır.</p>
+            <a href="{% url 'blogs' %}" class="btn btn-primary mt-3">Yapay Zeka Araçlarımızı KEŞFEDİN!</a>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-4 text-center mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Vizyonumuz</h5>
+                    <p class="card-text text-muted">Geleceğin teknolojilerine öncülük ederek, sürdürülebilir ve yenilikçi çözümlerle sektörde lider olmayı hedefliyoruz.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Misyonumuz</h5>
+                    <p class="card-text text-muted">Müşteri memnuniyetini ve kaliteyi ön planda tutarak, dürüst ve güvenilir hizmet sunmak ana gayemizdir.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Değerlerimiz</h5>
+                    <p class="card-text text-muted">Yenilikçilik, dürüstlük, müşteri odaklılık ve sürdürülebilirlik temel değerlerimizdir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

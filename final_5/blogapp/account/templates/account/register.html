@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaydol</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .register-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="register-container">
+            <h2 class="text-center">Kaydol</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_username">Kullanıcı Adı:</label>
+                    <input type="text" name="username" id="id_username" class="form-control" required value="{{ username }}">
+                </div>
+                <div class="form-group">
+                    <label for="id_email">E-mail:</label>
+                    <input type="email" name="email" id="id_email" class="form-control" required value="{{ email }}">
+                </div>
+                <div class="form-group">
+                    <label for="id_firstname">İsim:</label>
+                    <input type="text" name="firstname" id="id_firstname" class="form-control" required value="{{ firstname }}">
+                </div>
+                <div class="form-group">
+                    <label for="id_lastname">Soyisim:</label>
+                    <input type="text" name="lastname" id="id_lastname" class="form-control" required value="{{ lastname }}">
+                </div>
+                <div class="form-group">
+                    <label for="id_password">Parola:</label>
+                    <input type="password" name="password" id="id_password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_repassword">Parola Tekrar:</label>
+                    <input type="password" name="repassword" id="id_repassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Kaydol</button>
+            </form>
+            {% if error %}
+                <p class="error-message text-center">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

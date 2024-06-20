@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %} 
+
+{% block title %}Yorumu Düzenle{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h1 class="card-title mb-0">Yorumu Düzenle</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_comment" class="form-label">Yorum</label>
+                            {{ form.comment|add_class:"form-control" }}
+                            <div class="invalid-feedback">
+                                Lütfen yorumunuzu giriniz.
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a href="{% url 'blog_details' blog.id %}" class="btn btn-secondary">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

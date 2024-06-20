@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %} Yapay Zekalar {% endblock %}
+
+{% block css_files %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .categories {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .categories h4 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .categories a {
+        color: #6e8efb;
+        text-decoration: none;
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .categories a:hover {
+        background-color: #f0f0f5;
+    }
+
+    .blog-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .blog-header h1 {
+        font-size: 2.5rem;
+        color: #333;
+    }
+
+    .blog-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        background: #ffffff;
+    }
+
+    .blog-card img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .blog-card h5 {
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    .blog-card p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .btn-primary {
+        background-color: #6e8efb;
+        border-color: #6e8efb;
+    }
+
+    .btn-primary:hover {
+        background-color: #5a78e1;
+        border-color: #5a78e1;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="categories">
+                <h4>Kategoriler</h4>
+                {% include 'partials/_categories.html' %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="blog-header">
+                <h1>Yapay Zeka Araçları</h1>
+                <hr>
+            </div>
+            {% if blogs|length > 0 %}
+                <div class="row">
+                    {% for blog in blogs %}
+                        {% if blog.is_active %}
+                            <div class="col-md-6">
+                                <div class="card blog-card">
+                                    <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ blog.title }}</h5>
+                                        <p class="card-text">{{ blog.excerpt }}</p>
+                                        <a href="{% url 'blog_details' blog.slug %}" class="btn btn-primary">Devamını Oku</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-warning">No Blogs</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
